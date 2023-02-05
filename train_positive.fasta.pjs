@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "train_positive.fasta",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "train_positive.fasta",
+  "number-of-letters": 1307289,
+  "number-of-sequences": 3000,
+  "last-updated": "2023-02-05T12:14:00",
+  "number-of-volumes": 1,
+  "bytes-total": 2660654,
+  "bytes-to-cache": 1334406,
+  "files": [
+    "train_positive.fasta.pdb",
+    "train_positive.fasta.phr",
+    "train_positive.fasta.pin",
+    "train_positive.fasta.pot",
+    "train_positive.fasta.psq",
+    "train_positive.fasta.ptf",
+    "train_positive.fasta.pto"
+  ]
+}
