@@ -186,11 +186,11 @@ def gen_features(df_seq_tr):
  # os.system('python  iFeature/iFeature.py --file seq.fasta --type PAAC --out temp/PAAC_tr.txt')
  # os.system('python  iFeature/iFeature.py --file seq.fasta --type QSOrder --out temp/QSOrder_tr.txt')
 
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py --file seq.fasta --type AAC --out temp/AAC_tr.txt"])
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py --file seq.fasta --type DPC --out temp/DPC_tr.txt"])
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py --file seq.fasta --type DDE --out temp/DDE_tr.txt"])
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py --file seq.fasta --type PAAC --out temp/PAAC_tr.txt"])
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py --file seq.fasta --type QSOrder --out temp/QSOrder_tr.txt"])
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file seq.fasta ", "--type AAC", " --out temp/AAC_tr.txt"])
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file seq.fasta", " --type DPC ", "--out temp/DPC_tr.txt"])
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file seq.fasta ", "--type DDE ", "--out temp/DDE_tr.txt"])
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file seq.fasta ", "--type PAAC", " --out temp/PAAC_tr.txt"])
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file seq.fasta", " --type QSOrder", " --out temp/QSOrder_tr.txt"])
 
   df_AAC_tr = pd.read_csv('temp/AAC_tr.txt', sep="\t")
   df_AAC_tr.columns = 'AAC_' + df_AAC_tr.columns
