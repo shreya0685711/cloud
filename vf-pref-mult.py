@@ -198,7 +198,7 @@ def gen_features(df_seq_tr):
   #subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file ", "seq.fasta ", "--type", "PAAC"], stdout=PAAC_tr)
   #subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file", "seq.fasta", " --type", "QSOrder"], stdout=QSOrder_tr)
 
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta ", "--type", "AAC", "--out", 'temp/AAC_tr.txt'  ])
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta", "--type", "AAC", "--out", 'temp/AAC_tr.txt'  ])
   subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta", "--type", "DPC", "--out", 'temp/DPC_tr.txt'] )
   subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta", "--type", "DDE", "--out", 'temp/DDE_tr.txt'] )
   subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta", "--type", "PAAC", "--out", 'temp/PAAC_tr.txt'] )
