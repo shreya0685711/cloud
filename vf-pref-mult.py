@@ -197,16 +197,16 @@ def gen_features(df_seq_tr):
   subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file ", "seq.fasta ", "--type", "PAAC"], stdout=PAAC_tr)
   subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file", " seq.fasta", " --type", "QSOrder"], stdout=QSOrder_tr)
 
-  df_AAC_tr = pd.read_csv('temp/AAC_tr.txt', sep="\t")
+  df_AAC_tr = pd.read_csv(AAC_tr, sep="\t")
   df_AAC_tr.columns = 'AAC_' + df_AAC_tr.columns
-  df_DPC_tr = pd.read_csv('temp/DPC_tr.txt', sep="\t")
+  df_DPC_tr = pd.read_csv(DPC_tr, sep="\t")
   df_DPC_tr.columns = 'DPC_' + df_DPC_tr.columns
-  df_DDE_tr  = pd.read_csv('temp/DDE_tr.txt', sep="\t")
+  df_DDE_tr  = pd.read_csv(DDE_tr, sep="\t")
   df_DDE_tr.columns = 'DDE_' + df_DDE_tr.columns
 
-  df_PAAC_tr = pd.read_csv('temp/PAAC_tr.txt', sep="\t")
+  df_PAAC_tr = pd.read_csv(PAAC_tr, sep="\t")
   df_PAAC_tr.columns = 'PAAC_' + df_PAAC_tr.columns
-  df_QSO_tr = pd.read_csv('temp/QSOrder_tr.txt', sep="\t")
+  df_QSO_tr = pd.read_csv(QSOrder_tr, sep="\t")
   df_QSO_tr.columns = 'QSO_' + df_QSO_tr.columns
 
   df_seq_tr = pd.merge(df_seq_tr, df_AAC_tr, how='inner', left_on='identifiers', right_on='AAC_#')
@@ -268,7 +268,7 @@ def sendemail(message_content):
         message.set_content(message_content)
         xtime = datetime.datetime.now()
 
-        message['To'] = 'e0685737@u.nus.edu, e0685736@u.nus.edu, e0685711@u.nus.edu, limsuang@nus.edu.sg,e0685723@u.nus.edu, nirmal@nus.edu.sg,e0685751@u.nus.edu,brandon.ng@nus.edu.sg,c.wang@nus.edu.sg,prakashs@nus.edu.sg'
+        message['To'] = ''
         message['From'] = 'capstone.pentagon.iss@gmail.com'
         message['Subject'] = 'Protein Sequence Prediction of Virulence Factor id-'+ str(xtime)
 
