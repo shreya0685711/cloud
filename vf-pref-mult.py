@@ -185,28 +185,35 @@ def gen_features(df_seq_tr):
 
  # os.system('python  iFeature/iFeature.py --file seq.fasta --type PAAC --out temp/PAAC_tr.txt')
  # os.system('python  iFeature/iFeature.py --file seq.fasta --type QSOrder --out temp/QSOrder_tr.txt')
-  AAC_tr = open('temp/AAC_tr.txt', 'w')
-  DPC_tr = open('temp/DPC_tr.txt', 'w')
-  DDE_tr = open('temp/DDE_tr.txt', 'w')
-  PAAC_tr = open('temp/PAAC_tr.txt', 'w')
-  QSOrder_tr = open('temp/QSOrder_tr.txt', 'w')
+  #AAC_tr = open('temp/AAC_tr.txt', 'w')
+  #DPC_tr = open('temp/DPC_tr.txt', 'w')
+  #DDE_tr = open('temp/DDE_tr.txt', 'w')
+  #PAAC_tr = open('temp/PAAC_tr.txt', 'w')
+  #QSOrder_tr = open('temp/QSOrder_tr.txt', 'w')
 
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", " seq.fasta ", "--type", "AAC"], stdout=AAC_tr)
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file", " seq.fasta", " --type", "DPC"], stdout=DPC_tr)
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file", " seq.fasta ", "--type", "DDE"], stdout=DDE_tr)
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file ", "seq.fasta ", "--type", "PAAC"], stdout=PAAC_tr)
-  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file", " seq.fasta", " --type", "QSOrder"], stdout=QSOrder_tr)
 
-  df_AAC_tr = pd.read_csv(AAC_tr, sep="\t")
+  #subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta ", "--type", "AAC"], stdout=AAC_tr)
+  #subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file", "seq.fasta", " --type", "DPC"], stdout=DPC_tr)
+  #subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file", "seq.fasta ", "--type", "DDE"], stdout=DDE_tr)
+  #subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file ", "seq.fasta ", "--type", "PAAC"], stdout=PAAC_tr)
+  #subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", " --file", "seq.fasta", " --type", "QSOrder"], stdout=QSOrder_tr)
+
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta ", "--type", "AAC", "--out", 'temp/AAC_tr.txt'  ])
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta", "--type", "DPC", "--out", 'temp/DPC_tr.txt'] )
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta", "--type", "DDE", "--out", 'temp/DDE_tr.txt'] )
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta", "--type", "PAAC", "--out", 'temp/PAAC_tr.txt'] )
+  subprocess.run([f"{sys.executable}", "iFeature/iFeature.py", "--file", "seq.fasta", "--type", "QSOrder", "--out", 'temp/QSOrder_tr.txt'] )
+
+  df_AAC_tr = pd.read_csv('temp/AAC_tr.txt', sep="\t")
   df_AAC_tr.columns = 'AAC_' + df_AAC_tr.columns
-  df_DPC_tr = pd.read_csv(DPC_tr, sep="\t")
+  df_DPC_tr = pd.read_csv('temp/DPC_tr.txt', sep="\t")
   df_DPC_tr.columns = 'DPC_' + df_DPC_tr.columns
-  df_DDE_tr  = pd.read_csv(DDE_tr, sep="\t")
+  df_DDE_tr  = pd.read_csv('temp/DDE_tr.txt', sep="\t")
   df_DDE_tr.columns = 'DDE_' + df_DDE_tr.columns
 
-  df_PAAC_tr = pd.read_csv(PAAC_tr, sep="\t")
+  df_PAAC_tr = pd.read_csv('temp/PAAC_tr.txt', sep="\t")
   df_PAAC_tr.columns = 'PAAC_' + df_PAAC_tr.columns
-  df_QSO_tr = pd.read_csv(QSOrder_tr, sep="\t")
+  df_QSO_tr = pd.read_csv('temp/QSOrder_tr.txt', sep="\t")
   df_QSO_tr.columns = 'QSO_' + df_QSO_tr.columns
 
   df_seq_tr = pd.merge(df_seq_tr, df_AAC_tr, how='inner', left_on='identifiers', right_on='AAC_#')
