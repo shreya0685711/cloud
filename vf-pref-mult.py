@@ -163,7 +163,7 @@ def pred(df_X):
     
     print(X.columns)
     for model in models_considered:
-      pickle_file = "Pickle\\" + model+ dyn_featurelist[i] +"_pkl"
+      pickle_file = "Pickle\" + model+ dyn_featurelist[i] +"_pkl"
       # load saved model
       with open(pickle_file , 'rb') as f:
         lr = pickle.load(f)
