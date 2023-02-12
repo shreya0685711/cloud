@@ -12,6 +12,8 @@ import datetime
 import subprocess
 import sys
 
+from Bio.Blast.Applications import NcbiblastpCommandline
+
 from sklearn.ensemble import GradientBoostingClassifier
 
 #!pip install Bio
