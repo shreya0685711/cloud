@@ -1,2 +1,2 @@
 emboss
-BLAST+
+ncbi-blast+
