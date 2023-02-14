@@ -163,7 +163,7 @@ def pred(df_X):
     
     print(X.columns)
     for model in models_considered:
-      pickle_folder = "Pickle//"
+      pickle_folder = "Pickle/"
       pickle_file = pickle_folder + model+ dyn_featurelist[i] +"_pkl"
       print(pickle_file)
       # load saved model
